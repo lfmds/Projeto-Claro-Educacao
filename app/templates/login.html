@@ -6,9 +6,9 @@
     <title>Login</title>
 </head>
 <body>
-    <form> <!-- Formulário de Login -->
+    <form action="{{ url_for('login') }}", method="POST"> <!-- Formulário de Login -->
         <label for="user">Usuário:</label>
-        <input type="text" id="user" name="user">
+        <input type="text" id="username" name="username">
 
         <br><br>
 
