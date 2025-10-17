@@ -32,6 +32,37 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# Rota Registro
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        check_password = request.form['check_password']
+
+        # validações
+        if password != check_password:
+            flash("As senhas não conferem")
+            return redirect(url_for('register'))
+        
+        if User.query.filter_by(username=username).first():
+            flash("Usuario ja existe")
+            return redirect(url_for('register'))
+        
+        if User.query.filter_by(email=email).first():
+            flash("Usuario ja existe")
+            return redirect(url_for('register'))
+        
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+        new_user = User(username=username, email=email, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash("Usuario criado com sucesso! Faça login")
+        return redirect(url_for('login'))
+    return render_template('register.html')
+
 # Rota de Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -47,7 +78,7 @@ def login():
     return render_template('login.html')
 
 # ROta Logout
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
 @login_required
 def logout():
     logout_user()
