@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, session
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from extensoes import db, login_manager  # Importa daqui agora
@@ -6,7 +6,7 @@ import re
 
 regex_username = r"^[A-Za-z]{3,}$" #Restringe apenas letras, com limite mínimo de 3 caracteres
 regex_email = r"^[a-zA-Z0-9._%+-]+@gmail\.com$" #Deve ser um e-mail válido com domínio @gmail.com
-regex_senha = r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" #Restringe senhas com limite de 8 caratacteres, incluindo maiúsculas, minúsculas e números
+regex_senha = r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$" #Restringe senhas com limite de 8 caratacteres, incluindo maiúsculas, minúsculas e números
 
 Login_blueprint = Blueprint('login', __name__, template_folder='templates')
 
