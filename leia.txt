@@ -1,0 +1,44 @@
+README - Estrutura do Projeto
+
+Este projeto foi organizado utilizando a estrutura de Blueprints do Flask, de forma modularizada e seguindo boas práticas de desenvolvimento.  
+
+Principais atualizações e informações:
+
+1. Estrutura de Blueprints
+   - O código foi reorganizado para que cada funcionalidade ou página do sistema seja tratada como um módulo separado (Blueprint).
+   - Isso facilita manutenção, escalabilidade e colaboração entre desenvolvedores.
+
+2. Arquivo .gitignore
+   - Foi adicionado um arquivo .gitignore para indicar quais arquivos e pastas **não devem ser rastreados pelo Git**.
+   - Exemplo: ambiente virtual (venv/), caches do Python (__pycache__), arquivos de IDE (.vscode/, .idea/), logs, entre outros.
+
+3. Arquivo requirements.txt
+   - Contém todas as dependências e bibliotecas necessárias para rodar o projeto.
+   - Para instalar as dependências em um ambiente virtual Python, use:
+     ```
+     pip install -r requirements.txt
+     ```
+
+4. Como rodar o projeto
+   - No Windows:
+     ```
+     run.py
+     ```
+   - No Linux:
+     ```
+     python3 run.py
+     ```
+
+5. Backup de Blueprints
+   - A pasta `backup/` contém todos os Blueprints que **ainda não foram implementados**.
+   - Estes serão integrados à nova estrutura de páginas conforme o desenvolvimento evoluir.
+
+6. Ambiente virtual Python
+   - É importante trabalhar dentro de um **ambiente virtual Python**.
+   - Todas as instalações de bibliotecas devem ser feitas dentro dele.
+   - Se adicionar novas bibliotecas, atualize o requirements.txt com o comando:
+     ```
+     pip freeze > requirements.txt
+     ```
+
+Seguindo estas instruções, o projeto mantém organização, modularidade e facilidade de manutenção.
