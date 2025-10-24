@@ -1,1 +1,0 @@
-#Arquivo necessário para importar arquivo blueprint para arquivo principal app.py.

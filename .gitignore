@@ -1,0 +1,35 @@
+# --- Virtualenv ---
+venv/
+.env/
+ENV/
+env/
+
+# --- Cache do Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- IDEs ---
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# --- Logs e temporários ---
+*.log
+*.tmp
+*.swp
+*.swo
+
+# --- Sistema operacional ---
+.DS_Store
+Thumbs.db
+
+# --- Outros ---
+*.egg-info/
+dist/
+build/
