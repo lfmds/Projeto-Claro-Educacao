@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
 <body>
-   <form action="{{ url_for('auth.login') }}" method="POST"> <!-- Formulário de Login -->
+   <form action="{{ url_for('main.login') }}" method="POST"> <!-- Formulário de Login -->
         <label for="user">Usuário:</label>
         <input type="text" id="username" name="username" required>
 
@@ -22,6 +22,6 @@
 
     <!-- Links para Criar e Recuperar Conta -->
     <a href="#">Esqueci a senha</a>
-    <a href="{{ url_for('auth.register') }}">Crie sua conta</a>
+    <a href="{{ url_for('main.register') }}">Crie sua conta</a>
 </body>
 </html>

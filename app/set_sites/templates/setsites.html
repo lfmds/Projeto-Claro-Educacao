@@ -17,6 +17,11 @@
 
 </head>
 <body>
+    <form method="POST" action="{{ url_for('trilha.telatrilha') }}">
+        <button type="submit" name="action" value="back">Voltar</button>
+    </form>
+    
+    <h1>Inserir Site</h1>
     <form> <!-- Formulário para enviar site -->
 
         <label for="site">URL:</label>
@@ -24,6 +29,5 @@
 
         <button type="submit">Inserir</button>
     </form>
-
 </body>
 </html>

@@ -65,6 +65,17 @@
 <body>
 
 <header>
+  <nav>
+    <div class="logo">MeuSite</div>
+    <ul>
+        <a href="{{ url_for('setsites.set_sites_page') }}">Inserir sites</a>
+        <a href="{{ url_for('forum.forum_page') }}">Fórum</a>
+        <a href="{{ url_for('perfil.perfil_page') }}">Perfil</a>
+    </ul>
+    <form method="POST" action="{{ url_for('trilha.telatrilha') }}">
+        <button type="submit" name="action" value="logout">Logout</button>
+    </form>
+  </nav>
     <h1>Minha Trilha de Estudo</h1>
     <p>Organize seu aprendizado passo a passo</p>
 </header>
@@ -73,41 +84,40 @@
     <h2>Trilha Front-End</h2>
 
     <div class="modulo">
-        <h3>Módulo 1: Fundamentos da Web</h3>
+        <h3>Trilha1 (Português)</h3> 
+        <form method="POST" action="{{url_for('trilha.trilha1') }}">
+            <button type="submit" name="action" value="trilha1">Clique Aqui</button>
+        </form>
         <ul>
-            <li>✅ O que é HTML, CSS e JavaScript</li>
-            <li>✅ Estrutura básica de uma página HTML</li>
-            <li>✅ Introdução ao CSS</li>
-            <li>✅ Ferramentas do desenvolvedor no navegador</li>
+            <li>✅ </li>
+            <li>✅ </li>
+            <li>✅ </li>
+            <li>✅ </li>
         </ul>
     </div>
 
     <div class="modulo">
-        <h3>Módulo 2: HTML Semântico</h3>
+        <h3>Trilha1 (Matemática)</h3>
+        <form method="POST" action="{{url_for('trilha.trilha2') }}">
+            <button type="submit" name="action" value="trilha2">Clique Aqui</button>
+        </form>
         <ul>
-            <li>✅ Tags semânticas (header, section, article...)</li>
-            <li>✅ Listas, tabelas e formulários</li>
-            <li>🔲 Acessibilidade básica</li>
+            <li>✅ </li>
+            <li>✅ </li>
+            <li>🔲 </li>
         </ul>
     </div>
 
     <div class="modulo">
-        <h3>Módulo 3: Estilizando com CSS</h3>
+        <h3>Trilha3 (Ciências)</h3> 
+        <form method="POST" action="{{url_for('trilha.trilha3') }}">
+            <button type="submit" name="action" value="trilha3">Clique Aqui</button>
+        </form>
         <ul>
-            <li>🔲 Selectors e propriedades</li>
-            <li>🔲 Cores, fontes e unidades</li>
-            <li>🔲 Layout com Flexbox</li>
-            <li>🔲 Media Queries e design responsivo</li>
-        </ul>
-    </div>
-
-    <div class="modulo">
-        <h3>Módulo 4: JavaScript Básico</h3>
-        <ul>
-            <li>🔲 Variáveis e tipos de dados</li>
-            <li>🔲 Operadores e estruturas de controle</li>
-            <li>🔲 Funções e eventos</li>
-            <li>🔲 Manipulação de DOM</li>
+            <li>✅ </li>
+            <li>✅ </li>
+            <li>✅ </li>
+            <li>✅ </li>
         </ul>
     </div>
 
