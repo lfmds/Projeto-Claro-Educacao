@@ -1,32 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="..\static\css\register.css">
-
+    <title>Sign In</title>
+    <link rel="stylesheet" href="..\static\css\login.css">
+    
     <style>
         /* A fonte "Poppins" é uma boa candidata para esse estilo moderno */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-
-        .header {
-            margin-bottom: 20px; /* Cria um espaço abaixo da seta */
-        }
-
-        .back-arrow {
-            color: rgb(224, 224, 224); /* Define a cor da seta como cinza claro */
-            font-size: 24px; /* Define o tamanho do ícone */
-            text-decoration: none; /* Remove qualquer sublinhado do link */
-            display: block; /* Garante que o link ocupe toda a largura */
-        }
-
-        .back-arrow:hover {
-            color: rgb(255, 255, 255);
-            transform: translateY(-5px);
-        }
-
 
         /* Reset Básico */
         * {
@@ -148,9 +131,6 @@
             margin-bottom: 20px;
         }
         
-        /* ---------------------------------------------------- */
-        /* NOVO ESTILO PARA O SEPARADOR 'OR' */
-        /* ---------------------------------------------------- */
         .or-separator {
             /* Propriedades para usar Flexbox */
             display: flex; 
@@ -188,37 +168,37 @@
 </head>
 <body>
     <div class="form-section">
-        <header>
-            <a href="{{ url_for('main.login') }}" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
-        </header>
-        <h2>Sign Up</h2>
+        <h2>Sign in</h2>
         <p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
 
-        <form action="{{ url_for('main.register') }}" method="POST"> 
+        <form action="{{url_for('main.login')}}" method="POST">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="User Name" id="username" name="username"> 
+                <input type="text" placeholder="User Name" name="username"> 
             </div>
-
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" id="email" name="email">
-            </div>
-             
+            
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" id="password" name="password">
+                <input type="password" placeholder="Password" name="password">
                 <a href="#" class="show-password">SHOW</a>
             </div>
-
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Check password" name="check_password" id="check_password">
+            
+            <div class="options">
+                <label class="remember-me">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="forgot-password">Forgot Password?</a>
             </div>
-
-            <button type="submit" name="action" value="register" class="btn primary-btn">Enviar</button>
-
+            
+            <button type="submit" class="btn primary-btn">Sing In</button>
+            
+            <p class="or-separator">Or</p>
         </form>
+
+        <div class="signup-link">
+            <p>Don't have an account? <a href="{{url_for('main.register')}}">Sign Up</a></p>
+        </div>  
+
     </div>
 </body>
 </html>

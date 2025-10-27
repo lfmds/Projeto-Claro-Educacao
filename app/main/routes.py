@@ -28,7 +28,7 @@ def login():
             return redirect(url_for('trilha.telatrilha'))
         else:
             flash('Usuário ou senha inválidos!')
-    return render_template('login.html')
+    return render_template('index.html')
 
 @main_bp.route('/register', methods=['GET', 'POST'])
 def register():

@@ -1,8 +1,8 @@
-from flask import Flask, app
+from flask import Flask
 from .extensions import db, login_manager
 from .main import main_bp
-from .tela_trilha.__inittrilha__ import trilha
-from .tela_forum.__initforum__ import forum   
+from .tela_trilha import trilha
+from .tela_forum import forum   
 from .set_sites import setsites
 from .tela_perfil import perfil
 
