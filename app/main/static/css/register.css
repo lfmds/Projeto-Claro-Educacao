@@ -80,7 +80,7 @@ body {
     color: rgb(224, 224, 224);
 }
 
-/* SHOW Password link */
+/* mostrar senha */
 #togglePassword, #toggleCheckPassword {
     text-decoration: none;
     color: rgb(224, 224, 224);
@@ -152,7 +152,7 @@ body {
     content: '';
     flex-grow: 1; /* Permite que a linha ocupe o espaço restante */
     height: 1px;
-    background-color: rgb(224, 224, 224); /* Cor da linha - usando a mesma da borda do input */
+    background-color: rgb(224, 224, 224); /* Cor da linha usando a mesma da borda do input */
     margin: 0 10px; /* Espaço entre o texto 'Or' e as linhas */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar o efeito de "peso" */
 }
