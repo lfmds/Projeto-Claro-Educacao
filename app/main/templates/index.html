@@ -4,167 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="..\static\css\login.css">
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/login.css') }}">
+    <script src="{{ url_for('main.static', filename='js/info.js') }}" defer></script> <!--Defer garante que o arquivo js só tente interagir com o HTML após a página estar totalmente carregada.-->
     
-    <style>
-        /* A fonte "Poppins" é uma boa candidata para esse estilo moderno */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-
-        /* Reset Básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: #0d1c2b;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .form-section h2 {
-            font-size: 2.5em;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: rgb(224, 224, 224);
-        }
-
-        .form-section .subtitle {
-            color: rgb(224, 224, 224);
-            margin-bottom: 40px;
-            font-size: 0.8em;
-            font-weight: 400;
-        }
-
-        /* Grupos de Input */
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-            border: 3px solid #384551; /* Borda bem sutil */
-            background: linear-gradient(to right, #0e161e, #1c2731); /* Fundo cinza claro (quase branco) para o input group */
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .input-group i {
-            color: rgb(224, 224, 224);
-            margin-right: 15px;
-            font-size: 1.1em;
-        }
-
-        .input-group input {
-            flex-grow: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: rgb(224, 224, 224);
-            font-size: 0.9em;
-            padding: 0;
-        }
-
-        .input-group input::placeholder {
-            color: rgb(224, 224, 224);
-        }
-
-        /* SHOW Password link */
-        .show-password {
-            text-decoration: none;
-            color: #f5f5f5;
-            font-size: 0.8em;
-            font-weight: 600;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        /* Opções (Remember me / Forgot Password) */
-        .options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px; /* Reduzido o espaçamento para a tela menor */
-            font-size: 0.85em;
-        }
-
-        .remember-me {
-            color: rgb(224, 224, 224);
-            font-weight: 300;
-        }
-        
-        .remember-me input[type="checkbox"] {
-            margin-right: 5px;
-            transform: scale(0.9); 
-            accent-color: #333;
-        }
-
-        .forgot-password {
-            color: #438abc; /* Cor azul de destaque */
-            text-decoration: none;
-            font-weight: 400;
-        }
-
-        /* Botões */
-        .btn {
-            width: 100%;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-align: center;
-            display: block; 
-            text-transform: capitalize;
-        }
-
-        .primary-btn {
-            background-color: #114971;
-            color: rgb(224, 224, 224);
-            border: none;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .or-separator {
-            /* Propriedades para usar Flexbox */
-            display: flex; 
-            align-items: center; /* Centraliza verticalmente o texto 'Or' com as linhas */
-            text-align: center;          
-            color: rgb(224, 224, 224);
-            margin: 25px 0; /* Espaçamento ajustado */
-            font-size: 0.8em;
-            font-weight: 300;
-        }
-
-        .or-separator::before,
-        .or-separator::after {
-            content: ''; 
-            flex-grow: 1; /* Permite que a linha ocupe o espaço restante */
-            height: 1px; 
-            background-color: rgb(224, 224, 224); /* Cor da linha - usando a mesma da borda do input */
-            margin: 0 10px; /* Espaço entre o texto 'Or' e as linhas */
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar o efeito de "peso" */
-        }
-
-        /* Link de Cadastro */
-        .signup-link {
-            text-align: center;
-            font-size: 0.8em;
-            color: rgb(224, 224, 224);
-        }
-
-        .signup-link a {
-            color: #438abc;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
 </head>
 <body>
     <div class="form-section">
@@ -179,8 +21,8 @@
             
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" name="password">
-                <a href="#" class="show-password">SHOW</a>
+                <input type="password" placeholder="Password" name="password" id="password">
+                <i class="fas fa-eye" id="togglePassword"></i>
             </div>
             
             <div class="options">
