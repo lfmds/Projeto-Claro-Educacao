@@ -15,27 +15,31 @@
         <h2>Sign Up</h2>
         <p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
 
-        <form action="{{ url_for('main.register') }}" method="POST"> 
+        <form action="{{ url_for('main.register') }}" method="POST" id="register_form"> 
             <div class="input-group">
                 <i class="fas fa-user"></i>
                 <input type="text" placeholder="User Name" id="username" name="username"> 
+                <span class="error"></span>
             </div>
-
+            
             <div class="input-group">
                 <i class="fas fa-envelope"></i>
                 <input type="email" placeholder="Email" id="email" name="email">
+                <span class="error"></span>
             </div>
              
             <div class="input-group">
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Password" id="password" name="password">
                 <i class="fas fa-eye" id="togglePassword"></i>
+                <span class="error"></span>
             </div>
 
             <div class="input-group">
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Check password" name="check_password" id="checkpassword">
                 <i class="fas fa-eye" id="toggleCheckPassword"></i>
+                <span class="error"></span>
             </div>
 
             <button type="submit" name="action" value="register" class="btn primary-btn">Enviar</button>
