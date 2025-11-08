@@ -3,13 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('perfil.static', filename='css/perfil.css') }}">
 </head>
+
 <body>
-    <header>
-        <h1>Perfil - Conteúdo em construção</h1>
-    </header>
-    <form method="POST" action="{{ url_for('trilha.telatrilha') }}">
-        <button type="submit" name="action" value="back">Voltar</button>
-    </form>
+    
+<div class="sidebar">
+
+    <img src="{{ url_for('perfil.static', filename='css/logo_axioma.webp') }}" class="sidebar-logo">
+    
+    <nav class="sidebar-nav">
+        <ul>
+            <li class="nav-item active">
+                <a href="#">
+                    <i class="fas fa-user"></i> 
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{ url_for('trilha.telatrilha') }}">
+                    <i class="fas fa-home"></i>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{{ url_for('forum.forum_page') }}">
+                    <i class="fa-solid fa-comments"></i>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <form method="POST" action="{{ url_for('perfil.perfil_page') }}" class="logout-form">
+                    <button type="submit" name="action" value="logout" class="icon-button">
+                        <i class="fa-solid fa-power-off"></i>
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="main-content">
+    <div class="dashboard-container1">
+        <div class="painel">
+            <h1>Perfil</h1>
+            
+            <div class="container_internos">
+                <div class="painel_interno">
+                    <div class="header-perfil">
+                        <i class="fas fa-user-circle perfil-icone"></i>
+                        <div class="info-header-perfil">
+                            <p>{{ user.username }}</p> <p>{{ user.email }}</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="linha-divisoria"></div>
+
+                    <div class="info-lista">
+                        <div class="info-item">
+                            <span>Matrícula</span>
+                            <span class="info-valor">123456</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span>RG</span>
+                            <span class="info-valor">4556874526</span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span>CPF</span>
+                            <span class="info-valor">12569745532</span>
+                        </div>                    
+
+                        <div class="info-item">
+                            <span>Idade</span>
+                            <span class="info-valor">20</span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span>Nome da instituição</span>
+                            <span class="info-valor">Estácio</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span>Ano</span>
+                            <span class="info-valor">3° colegial</span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span>Cidade</span>
+                            <span class="info-valor">Ribeirão Preto</span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span>Bairro</span>
+                            <span class="info-valor">Pq dos Servidores</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container2">
+        <div class="painel">
+            <h2>Desempenho</h2>
+            <i class="fas fa-chart-bar grafico-icone"></i>
+        </div>
+
+        <div class="painel">
+            <h2>Porcentagem de trilha completa</h2>
+            <i class="fas fa-chart-line grafico-icone"></i>
+        </div>
+
+        <div class="painel">
+            <h2>Porcentagem de acertos</h2>
+            <i class="fas fa-chart-pie grafico-icone"></i>
+        </div>
+    </div>
+</div>
+    
 </body>
 </html>
