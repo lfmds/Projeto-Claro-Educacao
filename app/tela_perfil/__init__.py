@@ -12,10 +12,8 @@ def require_login():
 @perfil.route('/perfil', methods=['GET', 'POST'])
 def perfil_page():
     if request.method == "POST":
-        # Esta é a lógica que será acionada pelo formulário/botão no HTML
         if 'action' in request.form and request.form['action'] == 'logout':
             logout_user()
             return redirect(url_for('main.login'))
-        
-    # Se a requisição for GET, ou se não for um logout, renderiza a página
-    return render_template('perfil.html', user=current_user) # Certifique-se de que o render_template está aqui
+    
+    return render_template('perfil.html', user=current_user) 
