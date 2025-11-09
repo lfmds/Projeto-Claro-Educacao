@@ -1,0 +1,137 @@
+/* Variáveis de Cores */
+:root {
+    --dark-blue: #FFFFFF; /* Azul Escuro */
+    --white: #1A253F;
+    --text-color: #FFFFFF;
+    --button-bg: #007bff; /* Azul padrão para o botão Register now */
+    --button-text: #FFFFFF;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--dark-blue); /* Fundo base */
+    min-height: 100vh; /* Garante altura total */
+}
+
+/* Container principal com o efeito diagonal */
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden; /* Importante para que a diagonal não cause scroll lateral */
+}
+
+/* Cria o fundo branco diagonal */
+/* Cria o fundo branco com o formato de polígono */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    z-index: 1;
+
+    /* MODIFICAÇÃO PRINCIPAL: Aplica o clip-path para criar a forma exata do polígono */
+    clip-path: polygon(20% 0, 100% 70%, 100% 100%, 0 100%, 0 0);
+
+    /* Removemos o 'transform: skewY()' e os ajustes de 'top' e 'height' */
+    /* Estas propriedades não são mais necessárias com o uso de clip-path */
+}
+
+/* Cabeçalho/Navegação */
+.navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 40px;
+    z-index: 10; /* Fica acima da diagonal */
+}
+
+.navbar .register-button{
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+/* Conteúdo Principal (Centralizado) */
+.hero-content {
+    position: relative;
+    z-index: 5; /* Fica acima do fundo diagonal */
+    
+    /* Centralização usando Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.logo {
+    width: 400px; /* Ajuste o tamanho da logo */
+    height: auto;
+    transform: translatey(-9%);
+}
+
+.welcome-text {
+    color: var(--text-color);
+    font-size: 23px;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    font-weight: 300;
+}
+
+.brand-name {
+    color: var(--text-color);
+    font-size: 100px; /* Aumentado o tamanho para corresponder à imagem */
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+
+/* Botão */
+.register-button {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste para navegação em telas menores */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .nav-link {
+        margin-left: 15px;
+    }
+    .brand-name {
+        font-size: 50px;
+    }
+}

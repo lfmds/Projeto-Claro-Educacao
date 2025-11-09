@@ -1,46 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/login.css') }}">
-    <script src="{{ url_for('main.static', filename='js/info.js') }}" defer></script> <!--Defer garante que o arquivo js só tente interagir com o HTML após a página estar totalmente carregada.-->
-    
+    <title>Axioma Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/menu.css') }}">
 </head>
 <body>
-    <div class="form-section">
-        <h2>Sign in</h2>
-        <p class="subtitle">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+    <div class="container">
+        <header class="navbar">
+            <nav>
+                <a href="https://startupaxioma.netlify.app/" class="register-button">Sobre</a>
+                <a href="{{url_for('main.login')}}" class="register-button">Login</a>
+            </nav>
+        </header>
 
-        <form action="{{url_for('main.login')}}" method="POST">
-            <div class="input-group">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="User Name" name="username"> 
-            </div>
-            
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" name="password" id="password">
-                <i class="fas fa-eye" id="togglePassword"></i>
-            </div>
-            
-            <div class="options">
-                <label class="remember-me">
-                    <input type="checkbox"> Remember me
-                </label>
-                <a href="#" class="forgot-password">Forgot Password?</a>
-            </div>
-            
-            <button type="submit" class="btn primary-btn">Sing In</button>
-            
-            <p class="or-separator">Or</p>
-        </form>
-
-        <div class="signup-link">
-            <p>Don't have an account? <a href="{{url_for('main.register')}}">Sign Up</a></p>
-        </div>  
-
+        <main class="hero-content">
+            <img src="{{ url_for('main.static', filename='css/logo_axioma.webp') }}" class="logo">
+            <p class="welcome-text">WELCOME</p>
+            <h1 class="brand-name">AXIOMA</h1>
+            <a href="{{url_for('main.register')}}" class="register-button">Register now</a>
+        </main>
     </div>
 </body>
 </html>

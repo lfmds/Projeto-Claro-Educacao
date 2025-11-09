@@ -6,7 +6,12 @@ from . import main_bp
 from .models import User
 from ..extensions import db
 
-@main_bp.route('/', methods=['GET', 'POST'])
+
+@main_bp.route('/')
+def menu():
+    return render_template('index.html')
+
+@main_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('trilha.telatrilha'))
@@ -18,7 +23,7 @@ def login():
         if user and check_password_hash(user.password, password):
             login_user(user)
             return redirect(url_for('trilha.telatrilha'))
-    return render_template('index.html')
+    return render_template('login.html')
 
 @main_bp.route('/register', methods=['GET', 'POST'])
 def register():
