@@ -20,9 +20,10 @@ body {
 /* Estilos da Sidebar Vertical */
 /* ------------------------------------------- */
 .sidebar {
+    position: fixed;
     width: 72px; /* Largura inicial */
-    min-height: 100vh;/* Garante que preencha a altura mínima da viewport */
-    z-index: 1;
+    height: 100vh;/* Garante que preencha a altura mínima da viewport */
+    z-index: 1000;
     background: #1A253F;
     overflow: hidden;
     transition: 0.6s ease;
@@ -163,6 +164,8 @@ body {
 /* ------------------------------------------- */
 .main-content {
     flex-grow: 1; 
+    margin-left: 72px;
+    min-height: 100vh;
 }
 
 
