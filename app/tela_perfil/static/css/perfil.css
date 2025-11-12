@@ -1,13 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
-/* Variáveis de cor para a Sidebar (AZUL MAIS ESCURO) */
-:root {
-    --fundo-sidebar: #1A253F; /* Azul ainda mais Escuro */
-    --cor-icone-inativo: #AAA; /* Cinza claro para ícones inativos */
-    --cor-destaque: #4A90E2; /* Azul Vibrante para o destaque */
-    --largura-sidebar: 80px; /* Largura da barra lateral */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +8,9 @@
 
 body {
     background-color: #152035;
-    color: #ccd6f6;
+    color: #e2e8fc;
+    
+    letter-spacing: 0.6px;
     /* Configura o body para usar flexbox e garantir a altura total */
     display: flex;
     min-height: 100vh;
@@ -26,145 +20,155 @@ body {
 /* Estilos da Sidebar Vertical */
 /* ------------------------------------------- */
 .sidebar {
-    width: var(--largura-sidebar);
-    height: 100vh; 
-    background-color: var(--fundo-sidebar);
-    position: fixed; /* FIXA a barra lateral na tela */
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    z-index: 1000;
-    box-shadow: #ccd6f6;
-    /* MODIFICAÇÃO: Usamos flexbox para posicionar o nav-item do logout no final */
-    display: flex;
-    flex-direction: column;
+    width: 72px; /* Largura inicial */
+    min-height: 100vh;/* Garante que preencha a altura mínima da viewport */
+    z-index: 1;
+    background: #1A253F;
+    overflow: hidden;
+    transition: 0.6s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilização para a sua logo */
-.sidebar-logo {
-    width: 120px; 
-    position: relative; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    height: auto; 
-    display: block; 
-    margin-top: 0; 
-    margin-bottom: 10px; 
-}
-
-.sidebar-nav {
-    /* MODIFICAÇÃO: O nav-item deve ocupar o espaço restante (push) */
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    /* MODIFICAÇÃO: Ocupa todo o espaço e usa flexbox para justificar o conteúdo */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Itens normais no topo */
-}
-
-.nav-item {
-    margin: 10px 0; 
-    position: relative; 
-}
-
-/* NOVO: A Lógica de posicionamento do botão de logout */
-.sidebar-nav ul li:last-child {
-    margin-top: auto; /* Empurra o último item (logout) para o final */
-    margin-bottom: 20px; /* Espaçamento da base da sidebar */
-}
-
-/* REMOVIDO: A regra .fa-power-off que estava mal posicionada */
-/* REMOVIDO o código original:
-.fa-power-off{
-    position: fixed;
-    bottom: 0;
-    transform: translateX(-50%);
-    padding-bottom: 30px;
-}
-*/
-
-.nav-item a {
-    display: block;
-    text-align: center;
-    color: var(--cor-icone-inativo); 
-    padding: 15px 0; 
-    font-size: 24px; 
-    text-decoration: none; 
-    transition: color 0.2s;
-}
-
-/* NOVO: Estilização do formulário e botão de logout */
-.logout-form {
-    display: flex;
-    height: 100%; 
-    width: 100%; 
-}
-
-.icon-button {
-    /* Reseta a aparência de botão */
-    background: none; 
-    border: none; 
-    cursor: pointer;
-    padding: 15px 0; /* O mesmo padding do .nav-item a */
-    margin: 0;
+.sidebar:hover{
+    width: 200px;
+    transition: 0.6s ease;
     
-    /* Copia as propriedades de texto/cor do link */
-    color: var(--cor-icone-inativo); 
-    font-size: 24px; 
-    text-decoration: none; 
-    transition: color 0.2s;
-    
-    /* Centraliza o ícone dentro do botão */
+}
+
+.logo-container {
     display: flex; 
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* **MANTÉM O ALINHAMENTO VERTICAL** */
+    height: 70px; 
+}
+
+.sidebar-logo{
+    position: static;
+    width: 110px; /* Tamanho da logo reduzido */
+    padding-top: 20px;
+    object-fit: contain; /* Garante que a imagem caiba sem distorção */
+    transform: translateX(-18%); 
+}
+
+.text-logo{
+    font-family: "Poppins", sans-serif;
+    color: #E35A01;
+    position: relative;
+    display: flex;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    transform: translate(-46%, 12px);
+}
+
+.sidebar ul{
+    position: relative;
+    /* Mudar height para min-height para garantir que ele se estique */
+    min-height: 90vh; 
+    padding-bottom: 70px;
+}
+
+.sidebar ul li{
+    list-style: none;
+    margin: 5px 0;
+}
+
+.sidebar ul li:hover{
+    background: #2D2D2D;
+    border-left: 4px solid #F7931E;
+}
+
+.sidebar ul li a{
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #e2e8fc
+}
+
+/* MODIFICAÇÃO AQUI: Ajuste do last-child para dar um pequeno padding bottom */
+.sidebar ul li:last-child{
+    position: absolute;
+    bottom: 0px; 
     width: 100%;
 }
 
-/* NOVO: Efeito ao passar o mouse no botão */
-.icon-button:hover {
-    color: white; /* Cor do hover igual ao link */
+.sidebar ul li form .logout-button-container {
+    position: relative;
+    display: flex; /* Mantém o display flex para alinhar .icone e .text */
+    white-space: nowrap;
+    text-decoration: none;
+    color: #e2e8fc;
+    
+    /* Remove a decoração padrão do botão: */
+    background: none; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer; 
+
+    /* Garante que o botão tenha o mesmo tamanho dos links */
+    width: 100%;
+    min-width: 75px;
+    height: 60px;
+    font-size: 22px;
 }
 
-
-/* Efeito de destaque (o retângulo azul) */
-.nav-item.active {
-    background-color: var(--cor-destaque); 
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(74, 144, 226, 0.6); 
+.sidebar ul li a .icone, .sidebar ul li form .logout-button-container .icone{ 
+    /* NOVO SELETOR ADICIONADO */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 75px;
+    height: 60px;
+    font-size: 22px;
 }
 
-/* Cor do ícone no estado ativo */
-.nav-item.active a,
-.nav-item.active .icon-button { /* Aplica o branco tanto ao link quanto ao botão */
-    color: white; 
+.sidebar ul li a .text,.sidebar ul li form .logout-button-container .text{ /* NOVO SELETOR ADICIONADO */
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 550;
 }
 
-/* Efeito ao passar o mouse */
-.nav-item a:hover:not(.active a) {
-    color: white;
+.sidebar ul li a .icone{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 75px;
+    height: 60px;
+    font-size: 22px;
+}
+
+.sidebar ul li a .text{
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 550;
 }
 
 /* ------------------------------------------- */
-/* Desloca o Conteúdo Principal */
+/* Desloca o Conteúdo Principal (CORREÇÃO APLICADA) */
 /* ------------------------------------------- */
 .main-content {
-    margin-left: var(--largura-sidebar);
     flex-grow: 1; 
 }
 
-/* ------------------------------------------- */
-/* Estilos dos Painéis e Layouts (Nenhuma alteração aqui) */
-/* ------------------------------------------- */
 
+/* ------------------------------------------- */
+/* Estilos do Dashboard e Conteúdo */
+/* ------------------------------------------- */
 .dashboard-container1{
     display: flex;
     width: 100%;
