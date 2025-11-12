@@ -17,17 +17,22 @@ body {
 }
 
 /* ------------------------------------------- */
-/* Estilos da Sidebar Vertical */
+/* Estilos da Sidebar Vertical (CORRIGIDO) */
 /* ------------------------------------------- */
 .sidebar {
-    position: fixed;
     width: 72px; /* Largura inicial */
-    height: 100vh;/* Garante que preencha a altura mínima da viewport */
-    z-index: 1000;
+    height: 100vh; /* Define altura total da viewport */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
     background: #1A253F;
-    overflow: hidden;
+    overflow-y: auto; 
+    overflow-x: hidden;
     transition: 0.6s ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    /* PROPRIEDADES DE FIXAÇÃO */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
 }
 
 .sidebar:hover{
@@ -164,8 +169,15 @@ body {
 /* ------------------------------------------- */
 .main-content {
     flex-grow: 1; 
+    /* MARGEM INICIAL para a largura padrão da sidebar */
     margin-left: 72px;
-    min-height: 100vh;
+    /* Adiciona transição para a margem acompanhar a expansão da sidebar */
+    transition: margin-left 0.6s ease;
+}
+
+/*Quando a sidebar estiver em hover, aplica margem de 200px ao main-content */
+.sidebar:hover ~ .main-content {
+    margin-left: 200px;
 }
 
 
